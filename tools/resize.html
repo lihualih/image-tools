@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer - Resize Images Online Free</title>
+  <meta name="description" content="Resize images to any dimension online for free. Maintain aspect ratio, use presets, or set custom width and height. Client-side processing.">
+  <meta name="keywords" content="image resizer, resize image, change image size, image dimensions, resize photo online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://imagetools.dev/tools/resize.html">
+
+  <meta property="og:title" content="Image Resizer - Resize Images Online Free">
+  <meta property="og:description" content="Resize images to any dimension. Maintain aspect ratio or set custom sizes. 100% client-side.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Resizer",
+    "url": "https://imagetools.dev/tools/resize.html",
+    "description": "Resize images to any dimension online for free.",
+    "applicationCategory": "MultimediaApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/><g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="18" height="18" rx="3"/><circle cx="7" cy="7" r="2"/><polyline points="18,13 13,8 8,13"/><polyline points="11,16 8,13 2,19"/></g></svg>
+        Image Tools
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="compress.html" class="nav-link">Compress</a>
+        <a href="convert.html" class="nav-link">Convert</a>
+        <a href="resize.html" class="nav-link active">Resize</a>
+        <a href="crop.html" class="nav-link">Crop</a>
+        <a href="bg-remover.html" class="nav-link">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="tool-page">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Image Resizer</span>
+      </nav>
+
+      <div class="tool-page-header">
+        <h1>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"/>
+            <polyline points="9 21 3 21 3 15"/>
+            <line x1="21" y1="3" x2="14" y2="10"/>
+            <line x1="3" y1="21" x2="10" y2="14"/>
+          </svg>
+          Image Resizer
+        </h1>
+        <p>Resize images to any dimension. Maintain aspect ratio, use presets, or set custom width and height.</p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" id="fileInput">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Drop your image here or click to browse</h3>
+        <p>Supports JPG, PNG, WebP, GIF, and BMP</p>
+        <div class="upload-formats">
+          <span class="format-badge">JPG</span>
+          <span class="format-badge">PNG</span>
+          <span class="format-badge">WebP</span>
+          <span class="format-badge">GIF</span>
+          <span class="format-badge">BMP</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="tool-controls hidden" id="controlsSection">
+        <div class="controls-header">
+          <h3>Resize Settings</h3>
+          <button class="btn btn-ghost btn-sm" id="resetBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <!-- Presets -->
+        <div class="form-group mb-lg">
+          <label class="form-label">Quick Presets</label>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="1920" data-h="1080">1920x1080</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="1280" data-h="720">1280x720</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="800" data-h="600">800x600</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="640" data-h="480">640x480</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="320" data-h="240">320x240</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="150" data-h="150">150x150</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="1080" data-h="1080">1080x1080</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-w="1200" data-h="630">1200x630 (OG)</button>
+          </div>
+        </div>
+
+        <div class="controls-grid">
+          <div class="form-group">
+            <label class="form-label">Width (px)</label>
+            <input type="number" class="form-input" id="resizeWidth" placeholder="Width" min="1">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Height (px)</label>
+            <input type="number" class="form-input" id="resizeHeight" placeholder="Height" min="1">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Output Format</label>
+            <select class="form-select" id="outputFormat">
+              <option value="same">Same as input</option>
+              <option value="image/jpeg">JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="range-group">
+              <div class="range-header">
+                <label class="form-label">Quality</label>
+                <span class="range-value" id="qualityValue">92%</span>
+              </div>
+              <input type="range" id="qualitySlider" min="1" max="100" value="92">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-md">
+          <label class="form-check">
+            <input type="checkbox" id="maintainAspect" checked>
+            <span>Maintain aspect ratio</span>
+          </label>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-primary btn-lg" id="resizeBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/></svg>
+            Resize Image
+          </button>
+          <button class="btn btn-secondary btn-lg" id="downloadBtn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="preview-section hidden" id="previewSection">
+        <div class="preview-container">
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-original">Original</span> Original</h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="originalPreview" alt="Original image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="originalSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="originalDimensions">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-processed">Resized</span> Resized</h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="resizedPreview" alt="Resized image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="resizedSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="resizedDimensions">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>All processing happens in your browser.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script>
+    let originalFile = null;
+    let originalImage = null;
+    let resizedDataURL = null;
+    let aspectRatio = 1;
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const controlsSection = document.getElementById('controlsSection');
+    const previewSection = document.getElementById('previewSection');
+    const widthInput = document.getElementById('resizeWidth');
+    const heightInput = document.getElementById('resizeHeight');
+    const maintainAspect = document.getElementById('maintainAspect');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
+    const resizeBtn = document.getElementById('resizeBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    new DragDropZone(uploadArea, { onFileDrop: handleFile });
+    fileInput.addEventListener('change', (e) => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+    async function handleFile(file) {
+      if (!file.type.startsWith('image/')) { Toast.error('Please select an image file.'); return; }
+      originalFile = file;
+      try {
+        const dataURL = await FileUtil.readAsDataURL(file);
+        originalImage = await FileUtil.loadImage(dataURL);
+        aspectRatio = originalImage.width / originalImage.height;
+
+        document.getElementById('originalPreview').src = dataURL;
+        document.getElementById('originalSize').textContent = FileUtil.formatBytes(file.size);
+        document.getElementById('originalDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+
+        widthInput.value = originalImage.width;
+        heightInput.value = originalImage.height;
+
+        controlsSection.classList.remove('hidden');
+        previewSection.classList.remove('hidden');
+        downloadBtn.disabled = true;
+        Toast.success('Image loaded!');
+      } catch (err) { Toast.error('Failed to load image.'); }
+    }
+
+    // Presets
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        widthInput.value = btn.dataset.w;
+        heightInput.value = btn.dataset.h;
+        maintainAspect.checked = false;
+      });
+    });
+
+    // Aspect ratio lock
+    widthInput.addEventListener('input', () => {
+      if (maintainAspect.checked && widthInput.value) {
+        heightInput.value = Math.round(parseInt(widthInput.value) / aspectRatio);
+      }
+    });
+
+    heightInput.addEventListener('input', () => {
+      if (maintainAspect.checked && heightInput.value) {
+        widthInput.value = Math.round(parseInt(heightInput.value) * aspectRatio);
+      }
+    });
+
+    qualitySlider.addEventListener('input', () => { qualityValue.textContent = qualitySlider.value + '%'; });
+
+    resizeBtn.addEventListener('click', async () => {
+      if (!originalImage) return;
+      const newWidth = parseInt(widthInput.value);
+      const newHeight = parseInt(heightInput.value);
+      if (!newWidth || !newHeight) { Toast.warning('Please enter valid dimensions.'); return; }
+
+      resizeBtn.disabled = true;
+      resizeBtn.innerHTML = '<span class="spinner"></span> Resizing...';
+      await new Promise(r => setTimeout(r, 50));
+
+      try {
+        let format = document.getElementById('outputFormat').value;
+        if (format === 'same') format = originalFile.type;
+        const quality = parseInt(qualitySlider.value) / 100;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = newWidth;
+        canvas.height = newHeight;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
+
+        resizedDataURL = canvas.toDataURL(format, quality);
+
+        document.getElementById('resizedPreview').src = resizedDataURL;
+        document.getElementById('resizedSize').textContent = FileUtil.formatBytes(ImageProcessor.getDataURLSize(resizedDataURL));
+        document.getElementById('resizedDimensions').textContent = `${newWidth} x ${newHeight}`;
+
+        downloadBtn.disabled = false;
+        Toast.success(`Image resized to ${newWidth}x${newHeight}!`);
+      } catch (err) {
+        Toast.error('Resize failed.');
+        console.error(err);
+      } finally {
+        resizeBtn.disabled = false;
+        resizeBtn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/></svg>
+          Resize Image
+        `;
+      }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!resizedDataURL) return;
+      let format = document.getElementById('outputFormat').value;
+      if (format === 'same') format = originalFile.type;
+      const ext = format.split('/')[1];
+      const name = originalFile.name.replace(/\.[^.]+$/, '') + '_resized.' + ext;
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = resizedDataURL;
+      link.click();
+      Toast.success('Download started!');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      originalFile = null; originalImage = null; resizedDataURL = null;
+      controlsSection.classList.add('hidden'); previewSection.classList.add('hidden');
+      fileInput.value = ''; downloadBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

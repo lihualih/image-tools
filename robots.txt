@@ -1,0 +1,13 @@
+# Image Tools - Free Online Image Processing
+# https://imagetools.dev
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://imagetools.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or internal paths (none needed for static site)

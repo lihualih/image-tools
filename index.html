@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Tools - Free Online Image Compressor, Converter & Editor</title>
+  <meta name="description" content="Free online image tools. Compress, convert, resize, crop images and remove backgrounds. 100% client-side processing for privacy. No upload required.">
+  <meta name="keywords" content="image compressor, image converter, image resizer, image cropper, background remover, online image tools, free image editor">
+  <meta name="author" content="Image Tools">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Image Tools - Free Online Image Processing">
+  <meta property="og:description" content="Compress, convert, resize, crop images and remove backgrounds. 100% client-side, no upload needed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imagetools.dev/">
+  <meta property="og:image" content="https://imagetools.dev/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Tools - Free Online Image Processing">
+  <meta name="twitter:description" content="Compress, convert, resize, crop images and remove backgrounds. 100% client-side, no upload needed.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://imagetools.dev/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Tools",
+    "url": "https://imagetools.dev",
+    "description": "Free online image tools for compression, conversion, resizing, cropping, and background removal.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Image Compression",
+      "Image Format Conversion",
+      "Image Resizing",
+      "Image Cropping",
+      "Background Removal"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/>
+          <g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="1" width="18" height="18" rx="3"/>
+            <circle cx="7" cy="7" r="2"/>
+            <polyline points="18,13 13,8 8,13"/>
+            <polyline points="11,16 8,13 2,19"/>
+          </g>
+        </svg>
+        Image Tools
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="tools/compress.html" class="nav-link">Compress</a>
+        <a href="tools/convert.html" class="nav-link">Convert</a>
+        <a href="tools/resize.html" class="nav-link">Resize</a>
+        <a href="tools/crop.html" class="nav-link">Crop</a>
+        <a href="tools/bg-remover.html" class="nav-link">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          100% Client-Side Processing
+        </div>
+        <h1>Free Online <span>Image Tools</span></h1>
+        <p>Compress, convert, resize, crop images and remove backgrounds. Everything runs in your browser — your files never leave your device.</p>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#tools" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            Explore Tools
+          </a>
+          <a href="tools/compress.html" class="btn btn-outline btn-lg">
+            Start Compressing
+          </a>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Privacy First
+          </div>
+          <div class="hero-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            Lightning Fast
+          </div>
+          <div class="hero-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            100% Free
+          </div>
+          <div class="hero-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            Works Everywhere
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placeholder - Leaderboard -->
+    <div class="container">
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+    </div>
+
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
+      <div class="container">
+        <div class="section-header">
+          <h2>Powerful Image Tools</h2>
+          <p>Everything you need to process images, right in your browser</p>
+        </div>
+
+        <div class="tools-grid">
+          <!-- Image Compressor -->
+          <a href="tools/compress.html" class="tool-card">
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"/>
+                <path d="M6 9l6-6 6 6"/>
+                <rect x="3" y="15" width="18" height="6" rx="2"/>
+              </svg>
+            </div>
+            <h3>Image Compressor</h3>
+            <p>Reduce image file sizes by up to 80% without visible quality loss. Support for JPG, PNG, and WebP formats.</p>
+            <div class="tool-card-tags">
+              <span class="tool-tag">JPG</span>
+              <span class="tool-tag">PNG</span>
+              <span class="tool-tag">WebP</span>
+              <span class="tool-tag">Quality Control</span>
+            </div>
+          </a>
+
+          <!-- Image Converter -->
+          <a href="tools/convert.html" class="tool-card">
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 1 21 5 17 9"/>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                <polyline points="7 23 3 19 7 15"/>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+              </svg>
+            </div>
+            <h3>Image Converter</h3>
+            <p>Convert images between JPG, PNG, WebP, GIF, and BMP formats instantly. Batch conversion supported.</p>
+            <div class="tool-card-tags">
+              <span class="tool-tag">JPG</span>
+              <span class="tool-tag">PNG</span>
+              <span class="tool-tag">WebP</span>
+              <span class="tool-tag">GIF</span>
+              <span class="tool-tag">BMP</span>
+            </div>
+          </a>
+
+          <!-- Image Resizer -->
+          <a href="tools/resize.html" class="tool-card">
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"/>
+                <polyline points="9 21 3 21 3 15"/>
+                <line x1="21" y1="3" x2="14" y2="10"/>
+                <line x1="3" y1="21" x2="10" y2="14"/>
+              </svg>
+            </div>
+            <h3>Image Resizer</h3>
+            <p>Resize images to any dimension. Maintain aspect ratio, use preset sizes, or set custom width and height.</p>
+            <div class="tool-card-tags">
+              <span class="tool-tag">Custom Size</span>
+              <span class="tool-tag">Aspect Ratio</span>
+              <span class="tool-tag">Presets</span>
+            </div>
+          </a>
+
+          <!-- Image Cropper -->
+          <a href="tools/crop.html" class="tool-card">
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/>
+                <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/>
+              </svg>
+            </div>
+            <h3>Image Cropper</h3>
+            <p>Crop images with a visual selection tool. Choose custom areas, preset aspect ratios, and preview results.</p>
+            <div class="tool-card-tags">
+              <span class="tool-tag">Visual</span>
+              <span class="tool-tag">Free-form</span>
+              <span class="tool-tag">Aspect Ratios</span>
+            </div>
+          </a>
+
+          <!-- Background Remover -->
+          <a href="tools/bg-remover.html" class="tool-card">
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+                <path d="M14 14l7 7"/>
+              </svg>
+            </div>
+            <h3>Background Remover</h3>
+            <p>Remove solid color backgrounds from images. Adjust tolerance for clean, transparent results.</p>
+            <div class="tool-card-tags">
+              <span class="tool-tag">Transparency</span>
+              <span class="tool-tag">Color Picker</span>
+              <span class="tool-tag">Tolerance</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose Image Tools?</h2>
+          <p>Built for speed, privacy, and ease of use</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>100% Private</h4>
+              <p>All processing happens in your browser. Your images are never uploaded to any server. Complete privacy guaranteed.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Lightning Fast</h4>
+              <p>Powered by the Canvas API for instant image processing. No waiting for server uploads or downloads.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Works Everywhere</h4>
+              <p>No software installation needed. Works on any device with a modern browser — Windows, Mac, Linux, iOS, Android.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Completely Free</h4>
+              <p>No hidden fees, no watermarks, no account required. Use all tools as much as you want, completely free.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Responsive Design</h4>
+              <p>Optimized for desktop, tablet, and mobile. Process images on any screen size with a beautiful interface.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"/>
+                <line x1="12" y1="19" x2="20" y2="19"/>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Developer Friendly</h4>
+              <p>Clean, semantic code. Easy to self-host, customize, and extend. MIT licensed open source.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="tools-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>How It Works</h2>
+          <p>Three simple steps to process any image</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <h4>1. Upload Image</h4>
+            <p>Drag and drop your image or click to browse. Supports JPG, PNG, WebP, GIF, and BMP.</p>
+          </div>
+
+          <div class="info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+            <h4>2. Adjust Settings</h4>
+            <p>Configure quality, dimensions, format, or other options. Preview changes in real-time.</p>
+          </div>
+
+          <div class="info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <h4>3. Download Result</h4>
+            <p>Download your processed image instantly. Compare before and after side by side.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placeholder -->
+    <div class="container">
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/>
+              <g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="1" width="18" height="18" rx="3"/>
+                <circle cx="7" cy="7" r="2"/>
+                <polyline points="18,13 13,8 8,13"/>
+                <polyline points="11,16 8,13 2,19"/>
+              </g>
+            </svg>
+            Image Tools
+          </a>
+          <p>Free online image processing tools. Compress, convert, resize, crop, and remove backgrounds from images directly in your browser.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Tools</h4>
+          <ul class="footer-links">
+            <li><a href="tools/compress.html">Image Compressor</a></li>
+            <li><a href="tools/convert.html">Image Converter</a></li>
+            <li><a href="tools/resize.html">Image Resizer</a></li>
+            <li><a href="tools/crop.html">Image Cropper</a></li>
+            <li><a href="tools/bg-remover.html">Background Remover</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>Made with care for image processing needs worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Converter - Convert JPG, PNG, WebP, GIF, BMP Online Free</title>
+  <meta name="description" content="Convert images between JPG, PNG, WebP, GIF, and BMP formats online for free. Fast, private, client-side conversion. No upload required.">
+  <meta name="keywords" content="image converter, jpg to png, png to webp, webp to jpg, convert image format, online converter">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://imagetools.dev/tools/convert.html">
+
+  <meta property="og:title" content="Image Converter - Convert Between Formats Online Free">
+  <meta property="og:description" content="Convert images between JPG, PNG, WebP, GIF, and BMP formats instantly. 100% client-side processing.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Converter",
+    "url": "https://imagetools.dev/tools/convert.html",
+    "description": "Convert images between JPG, PNG, WebP, GIF, and BMP formats online for free.",
+    "applicationCategory": "MultimediaApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/><g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="18" height="18" rx="3"/><circle cx="7" cy="7" r="2"/><polyline points="18,13 13,8 8,13"/><polyline points="11,16 8,13 2,19"/></g></svg>
+        Image Tools
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="compress.html" class="nav-link">Compress</a>
+        <a href="convert.html" class="nav-link active">Convert</a>
+        <a href="resize.html" class="nav-link">Resize</a>
+        <a href="crop.html" class="nav-link">Crop</a>
+        <a href="bg-remover.html" class="nav-link">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="tool-page">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Image Converter</span>
+      </nav>
+
+      <div class="tool-page-header">
+        <h1>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 1 21 5 17 9"/>
+            <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+            <polyline points="7 23 3 19 7 15"/>
+            <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+          </svg>
+          Image Converter
+        </h1>
+        <p>Convert images between JPG, PNG, WebP, GIF, and BMP formats. Fast, private, and completely free.</p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" id="fileInput">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Drop your image here or click to browse</h3>
+        <p>Supports JPG, PNG, WebP, GIF, and BMP formats</p>
+        <div class="upload-formats">
+          <span class="format-badge">JPG</span>
+          <span class="format-badge">PNG</span>
+          <span class="format-badge">WebP</span>
+          <span class="format-badge">GIF</span>
+          <span class="format-badge">BMP</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="tool-controls hidden" id="controlsSection">
+        <div class="controls-header">
+          <h3>Conversion Settings</h3>
+          <button class="btn btn-ghost btn-sm" id="resetBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <div class="controls-grid">
+          <div class="form-group">
+            <label class="form-label">Output Format</label>
+            <select class="form-select" id="convertFormat">
+              <option value="image/jpeg">JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+              <option value="image/gif">GIF</option>
+              <option value="image/bmp">BMP</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="range-group">
+              <div class="range-header">
+                <label class="form-label">Quality</label>
+                <span class="range-value" id="qualityValue">92%</span>
+              </div>
+              <input type="range" id="qualitySlider" min="1" max="100" value="92">
+            </div>
+            <span class="form-sublabel">Only applies to JPEG and WebP</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Background Color</label>
+            <input type="color" class="form-input" id="bgColor" value="#ffffff" style="height: 42px; padding: 4px;">
+            <span class="form-sublabel">For transparent images converting to JPEG</span>
+          </div>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-primary btn-lg" id="convertBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/></svg>
+            Convert Image
+          </button>
+          <button class="btn btn-secondary btn-lg" id="downloadBtn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="preview-section hidden" id="previewSection">
+        <div class="preview-container">
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-original">Original</span> Original</h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="originalPreview" alt="Original image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Format</span>
+                <span class="stat-value" id="originalFormat">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="originalSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="originalDimensions">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-processed">Converted</span> Converted</h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="convertedPreview" alt="Converted image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Format</span>
+                <span class="stat-value" id="convertedFormat">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="convertedSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="convertedDimensions">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/></svg>
+          <h4>Multiple Formats</h4>
+          <p>Convert between JPG, PNG, WebP, GIF, and BMP. Choose the best format for your needs.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>Private Conversion</h4>
+          <p>All conversion happens locally in your browser. No files are uploaded to any server.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          <h4>Quality Preserved</h4>
+          <p>Adjust output quality to maintain visual fidelity. Perfect for web, print, or social media.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>All processing happens in your browser.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script>
+    let originalFile = null;
+    let originalImage = null;
+    let convertedDataURL = null;
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const controlsSection = document.getElementById('controlsSection');
+    const previewSection = document.getElementById('previewSection');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
+    const convertFormat = document.getElementById('convertFormat');
+    const convertBtn = document.getElementById('convertBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    new DragDropZone(uploadArea, { onFileDrop: handleFile });
+    fileInput.addEventListener('change', (e) => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+    async function handleFile(file) {
+      if (!file.type.startsWith('image/')) {
+        Toast.error('Please select an image file.');
+        return;
+      }
+
+      originalFile = file;
+      try {
+        const dataURL = await FileUtil.readAsDataURL(file);
+        originalImage = await FileUtil.loadImage(dataURL);
+
+        document.getElementById('originalPreview').src = dataURL;
+        document.getElementById('originalFormat').textContent = file.type.split('/')[1].toUpperCase();
+        document.getElementById('originalSize').textContent = FileUtil.formatBytes(file.size);
+        document.getElementById('originalDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+
+        controlsSection.classList.remove('hidden');
+        previewSection.classList.remove('hidden');
+        downloadBtn.disabled = true;
+        convertedDataURL = null;
+        Toast.success('Image loaded!');
+      } catch (err) {
+        Toast.error('Failed to load image.');
+      }
+    }
+
+    qualitySlider.addEventListener('input', () => { qualityValue.textContent = qualitySlider.value + '%'; });
+
+    convertBtn.addEventListener('click', async () => {
+      if (!originalImage) return;
+      convertBtn.disabled = true;
+      convertBtn.innerHTML = '<span class="spinner"></span> Converting...';
+      await new Promise(r => setTimeout(r, 50));
+
+      try {
+        const format = convertFormat.value;
+        const quality = parseInt(qualitySlider.value) / 100;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = originalImage.width;
+        canvas.height = originalImage.height;
+
+        if (format === 'image/jpeg' || format === 'image/bmp') {
+          const bgColor = document.getElementById('bgColor').value;
+          ctx.fillStyle = bgColor;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        ctx.drawImage(originalImage, 0, 0);
+        convertedDataURL = canvas.toDataURL(format, quality);
+
+        document.getElementById('convertedPreview').src = convertedDataURL;
+        document.getElementById('convertedFormat').textContent = format.split('/')[1].toUpperCase();
+        document.getElementById('convertedSize').textContent = FileUtil.formatBytes(ImageProcessor.getDataURLSize(convertedDataURL));
+        document.getElementById('convertedDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+
+        downloadBtn.disabled = false;
+        Toast.success('Image converted successfully!');
+      } catch (err) {
+        Toast.error('Conversion failed. Try a different format.');
+        console.error(err);
+      } finally {
+        convertBtn.disabled = false;
+        convertBtn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/></svg>
+          Convert Image
+        `;
+      }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!convertedDataURL) return;
+      const ext = convertFormat.value.split('/')[1];
+      const name = originalFile.name.replace(/\.[^.]+$/, '') + '.' + ext;
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = convertedDataURL;
+      link.click();
+      Toast.success('Download started!');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      originalFile = null;
+      originalImage = null;
+      convertedDataURL = null;
+      controlsSection.classList.add('hidden');
+      previewSection.classList.add('hidden');
+      fileInput.value = '';
+      qualitySlider.value = 92;
+      qualityValue.textContent = '92%';
+      downloadBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

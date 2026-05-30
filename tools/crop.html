@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Cropper - Crop Images Online Free</title>
+  <meta name="description" content="Crop images online for free with a visual selection tool. Choose custom areas, preset aspect ratios, and download instantly. Client-side processing.">
+  <meta name="keywords" content="image cropper, crop image online, photo crop, image editor, crop tool">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://imagetools.dev/tools/crop.html">
+
+  <meta property="og:title" content="Image Cropper - Crop Images Online Free">
+  <meta property="og:description" content="Crop images with a visual selection tool. Free, private, client-side processing.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Cropper",
+    "url": "https://imagetools.dev/tools/crop.html",
+    "description": "Crop images online for free with visual selection.",
+    "applicationCategory": "MultimediaApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/><g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="18" height="18" rx="3"/><circle cx="7" cy="7" r="2"/><polyline points="18,13 13,8 8,13"/><polyline points="11,16 8,13 2,19"/></g></svg>
+        Image Tools
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="compress.html" class="nav-link">Compress</a>
+        <a href="convert.html" class="nav-link">Convert</a>
+        <a href="resize.html" class="nav-link">Resize</a>
+        <a href="crop.html" class="nav-link active">Crop</a>
+        <a href="bg-remover.html" class="nav-link">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="tool-page">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Image Cropper</span>
+      </nav>
+
+      <div class="tool-page-header">
+        <h1>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/>
+            <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/>
+          </svg>
+          Image Cropper
+        </h1>
+        <p>Crop images with a visual selection tool. Drag to select the area you want to keep.</p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" id="fileInput">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Drop your image here or click to browse</h3>
+        <p>Supports JPG, PNG, WebP, GIF, and BMP</p>
+        <div class="upload-formats">
+          <span class="format-badge">JPG</span>
+          <span class="format-badge">PNG</span>
+          <span class="format-badge">WebP</span>
+          <span class="format-badge">GIF</span>
+          <span class="format-badge">BMP</span>
+        </div>
+      </div>
+
+      <!-- Crop Controls -->
+      <div class="tool-controls hidden" id="controlsSection">
+        <div class="controls-header">
+          <h3>Crop Settings</h3>
+          <button class="btn btn-ghost btn-sm" id="resetBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <!-- Aspect Ratio Presets -->
+        <div class="form-group mb-lg">
+          <label class="form-label">Aspect Ratio</label>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm ratio-btn active" data-ratio="free">Free</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="1:1">1:1</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="4:3">4:3</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="16:9">16:9</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="3:2">3:2</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="2:3">2:3</button>
+            <button class="btn btn-secondary btn-sm ratio-btn" data-ratio="9:16">9:16</button>
+          </div>
+        </div>
+
+        <!-- Crop Area Info -->
+        <div class="controls-grid">
+          <div class="form-group">
+            <label class="form-label">Selection Area</label>
+            <div id="cropInfo" style="font-size: 0.875rem; color: var(--text-secondary);">
+              Drag on the image to select crop area
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Output Format</label>
+            <select class="form-select" id="outputFormat">
+              <option value="same">Same as input</option>
+              <option value="image/jpeg">JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-primary btn-lg" id="cropBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg>
+            Crop Image
+          </button>
+          <button class="btn btn-secondary btn-lg" id="downloadBtn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </button>
+        </div>
+      </div>
+
+      <!-- Crop Canvas Area -->
+      <div class="hidden" id="cropArea" style="margin-top: 1.5rem;">
+        <div class="preview-box">
+          <div class="preview-header">
+            <h4>Select crop area by dragging</h4>
+          </div>
+          <div class="preview-image-wrapper" id="cropCanvasWrapper" style="position: relative; cursor: crosshair; min-height: 200px;">
+            <canvas id="cropCanvas"></canvas>
+            <div id="cropSelection" style="display: none; position: absolute; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.15); box-shadow: 0 0 0 9999px rgba(0,0,0,0.4); pointer-events: none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cropped Preview -->
+      <div class="preview-section hidden" id="previewSection">
+        <div class="preview-container preview-single">
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-processed">Cropped</span> Cropped Result</h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="croppedPreview" alt="Cropped image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="croppedSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="croppedDimensions">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>All processing happens in your browser.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script>
+    let originalFile = null;
+    let originalImage = null;
+    let croppedDataURL = null;
+    let cropCanvas = document.getElementById('cropCanvas');
+    let cropCtx = cropCanvas.getContext('2d');
+    let cropSelection = document.getElementById('cropSelection');
+    let isDrawing = false;
+    let startX = 0, startY = 0;
+    let cropRect = null;
+    let canvasScale = 1;
+    let currentRatio = 'free';
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const controlsSection = document.getElementById('controlsSection');
+    const cropArea = document.getElementById('cropArea');
+    const previewSection = document.getElementById('previewSection');
+    const cropBtn = document.getElementById('cropBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    new DragDropZone(uploadArea, { onFileDrop: handleFile });
+    fileInput.addEventListener('change', (e) => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+    async function handleFile(file) {
+      if (!file.type.startsWith('image/')) { Toast.error('Please select an image file.'); return; }
+      originalFile = file;
+      try {
+        const dataURL = await FileUtil.readAsDataURL(file);
+        originalImage = await FileUtil.loadImage(dataURL);
+
+        // Draw image on canvas
+        const wrapper = document.getElementById('cropCanvasWrapper');
+        const maxW = wrapper.clientWidth - 32;
+        canvasScale = Math.min(1, maxW / originalImage.width, 600 / originalImage.height);
+        const cw = Math.round(originalImage.width * canvasScale);
+        const ch = Math.round(originalImage.height * canvasScale);
+
+        cropCanvas.width = cw;
+        cropCanvas.height = ch;
+        cropCanvas.style.maxWidth = '100%';
+        cropCtx.drawImage(originalImage, 0, 0, cw, ch);
+
+        controlsSection.classList.remove('hidden');
+        cropArea.classList.remove('hidden');
+        previewSection.classList.add('hidden');
+        downloadBtn.disabled = true;
+        cropRect = null;
+        cropSelection.style.display = 'none';
+
+        Toast.success('Image loaded! Drag to select crop area.');
+      } catch (err) { Toast.error('Failed to load image.'); }
+    }
+
+    // Aspect ratio buttons
+    document.querySelectorAll('.ratio-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ratio-btn').forEach(b => {
+          b.classList.remove('btn-primary');
+          b.classList.add('btn-secondary');
+        });
+        btn.classList.add('btn-primary');
+        btn.classList.remove('btn-secondary');
+        currentRatio = btn.dataset.ratio;
+      });
+    });
+
+    // Crop drawing
+    cropCanvas.addEventListener('mousedown', (e) => {
+      const rect = cropCanvas.getBoundingClientRect();
+      startX = e.clientX - rect.left;
+      startY = e.clientY - rect.top;
+      isDrawing = true;
+      cropSelection.style.display = 'block';
+    });
+
+    cropCanvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+      const rect = cropCanvas.getBoundingClientRect();
+      let endX = e.clientX - rect.left;
+      let endY = e.clientY - rect.top;
+
+      let w = endX - startX;
+      let h = endY - startY;
+
+      // Apply aspect ratio
+      if (currentRatio !== 'free') {
+        const [rw, rh] = currentRatio.split(':').map(Number);
+        const ratio = rw / rh;
+        if (Math.abs(w) / Math.abs(h) > ratio) {
+          w = Math.sign(w) * Math.abs(h) * ratio;
+        } else {
+          h = Math.sign(h) * Math.abs(w) / ratio;
+        }
+        endX = startX + w;
+        endY = startY + h;
+      }
+
+      const x = Math.min(startX, endX);
+      const y = Math.min(startY, endY);
+      const absW = Math.abs(w);
+      const absH = Math.abs(h);
+
+      cropSelection.style.left = x + 'px';
+      cropSelection.style.top = y + 'px';
+      cropSelection.style.width = absW + 'px';
+      cropSelection.style.height = absH + 'px';
+
+      cropRect = { x, y, w: absW, h: absH };
+      document.getElementById('cropInfo').textContent = `${Math.round(absW / canvasScale)} x ${Math.round(absH / canvasScale)} px`;
+    });
+
+    document.addEventListener('mouseup', () => { isDrawing = false; });
+
+    // Touch support
+    cropCanvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = cropCanvas.getBoundingClientRect();
+      startX = touch.clientX - rect.left;
+      startY = touch.clientY - rect.top;
+      isDrawing = true;
+      cropSelection.style.display = 'block';
+    });
+
+    cropCanvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (!isDrawing) return;
+      const touch = e.touches[0];
+      const rect = cropCanvas.getBoundingClientRect();
+      let endX = touch.clientX - rect.left;
+      let endY = touch.clientY - rect.top;
+
+      let w = endX - startX;
+      let h = endY - startY;
+
+      if (currentRatio !== 'free') {
+        const [rw, rh] = currentRatio.split(':').map(Number);
+        const ratio = rw / rh;
+        if (Math.abs(w) / Math.abs(h) > ratio) {
+          w = Math.sign(w) * Math.abs(h) * ratio;
+        } else {
+          h = Math.sign(h) * Math.abs(w) / ratio;
+        }
+      }
+
+      const x = Math.min(startX, startX + w);
+      const y = Math.min(startY, startY + h);
+      const absW = Math.abs(w);
+      const absH = Math.abs(h);
+
+      cropSelection.style.left = x + 'px';
+      cropSelection.style.top = y + 'px';
+      cropSelection.style.width = absW + 'px';
+      cropSelection.style.height = absH + 'px';
+
+      cropRect = { x, y, w: absW, h: absH };
+      document.getElementById('cropInfo').textContent = `${Math.round(absW / canvasScale)} x ${Math.round(absH / canvasScale)} px`;
+    });
+
+    cropCanvas.addEventListener('touchend', () => { isDrawing = false; });
+
+    // Crop
+    cropBtn.addEventListener('click', async () => {
+      if (!cropRect || cropRect.w < 5 || cropRect.h < 5) {
+        Toast.warning('Please drag on the image to select a crop area first.');
+        return;
+      }
+
+      cropBtn.disabled = true;
+      cropBtn.innerHTML = '<span class="spinner"></span> Cropping...';
+      await new Promise(r => setTimeout(r, 50));
+
+      try {
+        let format = document.getElementById('outputFormat').value;
+        if (format === 'same') format = originalFile.type;
+
+        const sx = Math.round(cropRect.x / canvasScale);
+        const sy = Math.round(cropRect.y / canvasScale);
+        const sw = Math.round(cropRect.w / canvasScale);
+        const sh = Math.round(cropRect.h / canvasScale);
+
+        const canvas = ImageProcessor.crop(originalImage, sx, sy, sw, sh);
+        croppedDataURL = canvas.toDataURL(format, 0.92);
+
+        document.getElementById('croppedPreview').src = croppedDataURL;
+        document.getElementById('croppedSize').textContent = FileUtil.formatBytes(ImageProcessor.getDataURLSize(croppedDataURL));
+        document.getElementById('croppedDimensions').textContent = `${sw} x ${sh}`;
+
+        previewSection.classList.remove('hidden');
+        downloadBtn.disabled = false;
+        Toast.success('Image cropped successfully!');
+      } catch (err) {
+        Toast.error('Crop failed.');
+        console.error(err);
+      } finally {
+        cropBtn.disabled = false;
+        cropBtn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg>
+          Crop Image
+        `;
+      }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!croppedDataURL) return;
+      let format = document.getElementById('outputFormat').value;
+      if (format === 'same') format = originalFile.type;
+      const ext = format.split('/')[1];
+      const name = originalFile.name.replace(/\.[^.]+$/, '') + '_cropped.' + ext;
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = croppedDataURL;
+      link.click();
+      Toast.success('Download started!');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      originalFile = null; originalImage = null; croppedDataURL = null; cropRect = null;
+      controlsSection.classList.add('hidden'); cropArea.classList.add('hidden');
+      previewSection.classList.add('hidden'); fileInput.value = '';
+      cropSelection.style.display = 'none'; downloadBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

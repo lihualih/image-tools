@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compressor - Compress JPG, PNG, WebP Online Free</title>
+  <meta name="description" content="Compress JPG, PNG, and WebP images online for free. Reduce file size by up to 80% without visible quality loss. 100% client-side processing.">
+  <meta name="keywords" content="image compressor, compress jpg, compress png, compress webp, reduce image size, image optimizer">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://imagetools.dev/tools/compress.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Image Compressor - Compress JPG, PNG, WebP Online Free">
+  <meta property="og:description" content="Compress images online for free. Reduce file size by up to 80% without visible quality loss.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imagetools.dev/tools/compress.html">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Compressor",
+    "url": "https://imagetools.dev/tools/compress.html",
+    "description": "Compress JPG, PNG, and WebP images online for free. Reduce file size without visible quality loss.",
+    "applicationCategory": "MultimediaApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/><g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="18" height="18" rx="3"/><circle cx="7" cy="7" r="2"/><polyline points="18,13 13,8 8,13"/><polyline points="11,16 8,13 2,19"/></g></svg>
+        Image Tools
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="compress.html" class="nav-link active">Compress</a>
+        <a href="convert.html" class="nav-link">Convert</a>
+        <a href="resize.html" class="nav-link">Resize</a>
+        <a href="crop.html" class="nav-link">Crop</a>
+        <a href="bg-remover.html" class="nav-link">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="tool-page">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Image Compressor</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="tool-page-header">
+        <h1>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18"/><path d="M6 9l6-6 6 6"/><rect x="3" y="15" width="18" height="6" rx="2"/>
+          </svg>
+          Image Compressor
+        </h1>
+        <p>Reduce image file sizes by up to 80% without visible quality loss. Your images stay private — everything runs in your browser.</p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input type="file" accept="image/jpeg,image/png,image/webp" id="fileInput">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Drop your image here or click to browse</h3>
+        <p>Supports JPG, PNG, and WebP formats. Max file size: 50MB</p>
+        <div class="upload-formats">
+          <span class="format-badge">JPG</span>
+          <span class="format-badge">JPEG</span>
+          <span class="format-badge">PNG</span>
+          <span class="format-badge">WebP</span>
+        </div>
+      </div>
+
+      <!-- Controls (hidden until file loaded) -->
+      <div class="tool-controls hidden" id="controlsSection">
+        <div class="controls-header">
+          <h3>Compression Settings</h3>
+          <button class="btn btn-ghost btn-sm" id="resetBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <div class="controls-grid">
+          <div class="form-group">
+            <div class="range-group">
+              <div class="range-header">
+                <label class="form-label">Quality</label>
+                <span class="range-value" id="qualityValue">80%</span>
+              </div>
+              <input type="range" id="qualitySlider" min="1" max="100" value="80">
+            </div>
+            <span class="form-sublabel">Lower quality = smaller file size</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Output Format</label>
+            <select class="form-select" id="outputFormat">
+              <option value="same">Same as input</option>
+              <option value="image/jpeg">JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Max Width (px)</label>
+            <input type="number" class="form-input" id="maxWidth" placeholder="Original" min="1">
+            <span class="form-sublabel">Leave empty for original size</span>
+          </div>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-primary btn-lg" id="compressBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M6 9l6-6 6 6"/><rect x="3" y="15" width="18" height="6" rx="2"/></svg>
+            Compress Image
+          </button>
+          <button class="btn btn-secondary btn-lg" id="downloadBtn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview Section -->
+      <div class="preview-section hidden" id="previewSection">
+        <div class="preview-container">
+          <!-- Original -->
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4>
+                <span class="preview-badge preview-badge-original">Original</span>
+                Original Image
+              </h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="originalPreview" alt="Original image preview">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">File Size</span>
+                <span class="stat-value" id="originalSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="originalDimensions">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Format</span>
+                <span class="stat-value" id="originalFormat">-</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compressed -->
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4>
+                <span class="preview-badge preview-badge-processed">Compressed</span>
+                Compressed Image
+              </h4>
+            </div>
+            <div class="preview-image-wrapper">
+              <img id="compressedPreview" alt="Compressed image preview">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">File Size</span>
+                <span class="stat-value" id="compressedSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Reduction</span>
+                <span class="stat-value success" id="reductionPercent">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="compressedDimensions">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ad Placeholder -->
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-grid">
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>Secure & Private</h4>
+          <p>Images never leave your browser. All compression happens locally on your device.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h4>Instant Results</h4>
+          <p>Powered by the Canvas API for fast, efficient compression without server uploads.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <h4>Quality Control</h4>
+          <p>Adjust compression quality from 1-100% to find the perfect balance of size and quality.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>All processing happens in your browser. Your images are never uploaded.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script>
+    // Compress Tool Logic
+    let originalFile = null;
+    let originalImage = null;
+    let compressedDataURL = null;
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const controlsSection = document.getElementById('controlsSection');
+    const previewSection = document.getElementById('previewSection');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
+    const outputFormat = document.getElementById('outputFormat');
+    const maxWidthInput = document.getElementById('maxWidth');
+    const compressBtn = document.getElementById('compressBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Drag & Drop
+    new DragDropZone(uploadArea, {
+      onFileDrop: handleFile
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files[0]) handleFile(e.target.files[0]);
+    });
+
+    async function handleFile(file) {
+      if (!FileUtil.isImage(file, ['image/jpeg', 'image/png', 'image/webp'])) {
+        Toast.error('Please select a JPG, PNG, or WebP image.');
+        return;
+      }
+
+      if (file.size > 50 * 1024 * 1024) {
+        Toast.error('File size must be under 50MB.');
+        return;
+      }
+
+      originalFile = file;
+
+      try {
+        const dataURL = await FileUtil.readAsDataURL(file);
+        originalImage = await FileUtil.loadImage(dataURL);
+
+        // Update UI
+        document.getElementById('originalPreview').src = dataURL;
+        document.getElementById('originalSize').textContent = FileUtil.formatBytes(file.size);
+        document.getElementById('originalDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+        document.getElementById('originalFormat').textContent = file.type.split('/')[1].toUpperCase();
+
+        controlsSection.classList.remove('hidden');
+        previewSection.classList.remove('hidden');
+        downloadBtn.disabled = true;
+        compressedDataURL = null;
+
+        Toast.success('Image loaded successfully!');
+      } catch (err) {
+        Toast.error('Failed to load image. Please try another file.');
+        console.error(err);
+      }
+    }
+
+    // Quality slider
+    qualitySlider.addEventListener('input', () => {
+      qualityValue.textContent = qualitySlider.value + '%';
+    });
+
+    // Compress
+    compressBtn.addEventListener('click', async () => {
+      if (!originalImage) return;
+
+      compressBtn.disabled = true;
+      compressBtn.innerHTML = '<span class="spinner"></span> Compressing...';
+
+      // Small delay to let UI update
+      await new Promise(r => setTimeout(r, 50));
+
+      try {
+        const quality = parseInt(qualitySlider.value) / 100;
+        let format = outputFormat.value;
+        if (format === 'same') format = originalFile.type;
+
+        const maxWidth = maxWidthInput.value ? parseInt(maxWidthInput.value) : null;
+
+        compressedDataURL = ImageProcessor.compress(originalImage, {
+          quality,
+          format,
+          maxWidth
+        });
+
+        // Update preview
+        document.getElementById('compressedPreview').src = compressedDataURL;
+        const compressedSize = ImageProcessor.getDataURLSize(compressedDataURL);
+        document.getElementById('compressedSize').textContent = FileUtil.formatBytes(compressedSize);
+
+        const reduction = ((1 - compressedSize / originalFile.size) * 100).toFixed(1);
+        document.getElementById('reductionPercent').textContent = reduction + '% smaller';
+
+        // Update dimensions if resized
+        const tempImg = await FileUtil.loadImage(compressedDataURL);
+        document.getElementById('compressedDimensions').textContent = `${tempImg.width} x ${tempImg.height}`;
+
+        downloadBtn.disabled = false;
+        Toast.success(`Image compressed! ${reduction}% smaller.`);
+      } catch (err) {
+        Toast.error('Compression failed. Please try again.');
+        console.error(err);
+      } finally {
+        compressBtn.disabled = false;
+        compressBtn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M6 9l6-6 6 6"/><rect x="3" y="15" width="18" height="6" rx="2"/></svg>
+          Compress Image
+        `;
+      }
+    });
+
+    // Download
+    downloadBtn.addEventListener('click', () => {
+      if (!compressedDataURL) return;
+
+      let format = outputFormat.value;
+      if (format === 'same') format = originalFile.type;
+
+      const ext = format.split('/')[1];
+      const name = originalFile.name.replace(/\.[^.]+$/, '') + '_compressed.' + ext;
+
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = compressedDataURL;
+      link.click();
+
+      Toast.success('Download started!');
+    });
+
+    // Reset
+    resetBtn.addEventListener('click', () => {
+      originalFile = null;
+      originalImage = null;
+      compressedDataURL = null;
+      controlsSection.classList.add('hidden');
+      previewSection.classList.add('hidden');
+      fileInput.value = '';
+      qualitySlider.value = 80;
+      qualityValue.textContent = '80%';
+      outputFormat.value = 'same';
+      maxWidthInput.value = '';
+      downloadBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
