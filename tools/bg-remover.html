@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Remover - Remove Image Background Online Free</title>
+  <meta name="description" content="Remove solid color backgrounds from images online for free. Adjust tolerance for clean, transparent results. Client-side processing.">
+  <meta name="keywords" content="background remover, remove background, transparent background, image editor, bg remover online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://imagetools.dev/tools/bg-remover.html">
+
+  <meta property="og:title" content="Background Remover - Remove Image Background Online Free">
+  <meta property="og:description" content="Remove solid color backgrounds from images. Free, private, client-side processing.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Background Remover",
+    "url": "https://imagetools.dev/tools/bg-remover.html",
+    "description": "Remove solid color backgrounds from images online for free.",
+    "applicationCategory": "MultimediaApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="currentColor" style="color: var(--primary)"/><g transform="translate(6,6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="18" height="18" rx="3"/><circle cx="7" cy="7" r="2"/><polyline points="18,13 13,8 8,13"/><polyline points="11,16 8,13 2,19"/></g></svg>
+        Image Tools
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="compress.html" class="nav-link">Compress</a>
+        <a href="convert.html" class="nav-link">Convert</a>
+        <a href="resize.html" class="nav-link">Resize</a>
+        <a href="crop.html" class="nav-link">Crop</a>
+        <a href="bg-remover.html" class="nav-link active">BG Remover</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="tool-page">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Background Remover</span>
+      </nav>
+
+      <div class="tool-page-header">
+        <h1>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          Background Remover
+        </h1>
+        <p>Remove solid color backgrounds from images. Click on the image to pick the color to remove, then adjust tolerance.</p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" id="fileInput">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Drop your image here or click to browse</h3>
+        <p>Best results with images that have a solid, uniform background color</p>
+        <div class="upload-formats">
+          <span class="format-badge">JPG</span>
+          <span class="format-badge">PNG</span>
+          <span class="format-badge">WebP</span>
+          <span class="format-badge">GIF</span>
+          <span class="format-badge">BMP</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="tool-controls hidden" id="controlsSection">
+        <div class="controls-header">
+          <h3>Background Removal Settings</h3>
+          <button class="btn btn-ghost btn-sm" id="resetBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <div class="controls-grid">
+          <div class="form-group">
+            <label class="form-label">Background Color to Remove</label>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <input type="color" class="form-input" id="bgColor" value="#ffffff" style="height: 42px; padding: 4px; width: 60px;">
+              <span style="font-size: 0.875rem; color: var(--text-secondary);">Click on image to pick color</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="range-group">
+              <div class="range-header">
+                <label class="form-label">Tolerance</label>
+                <span class="range-value" id="toleranceValue">30</span>
+              </div>
+              <input type="range" id="toleranceSlider" min="1" max="150" value="30">
+            </div>
+            <span class="form-sublabel">Higher tolerance removes more similar colors</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Edge Smoothing</label>
+            <select class="form-select" id="edgeMode">
+              <option value="none">None (Fastest)</option>
+              <option value="basic" selected>Basic</option>
+              <option value="enhanced">Enhanced (Slower)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group mt-md">
+          <label class="form-check">
+            <input type="checkbox" id="autoDetect" checked>
+            <span>Auto-detect most common color as background</span>
+          </label>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-primary btn-lg" id="removeBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M14 14l7 7"/><path d="M21 14l-7 7"/></svg>
+            Remove Background
+          </button>
+          <button class="btn btn-secondary btn-lg" id="downloadBtn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PNG
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="preview-section hidden" id="previewSection">
+        <div class="preview-container">
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-original">Original</span> Original</h4>
+            </div>
+            <div class="preview-image-wrapper" id="originalWrapper" style="cursor: crosshair;">
+              <img id="originalPreview" alt="Original image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="originalSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="originalDimensions">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-box">
+            <div class="preview-header">
+              <h4><span class="preview-badge preview-badge-processed">Result</span> Background Removed</h4>
+            </div>
+            <div class="preview-image-wrapper" style="background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;">
+              <img id="resultPreview" alt="Background removed image">
+            </div>
+            <div class="preview-stats">
+              <div class="stat-item">
+                <span class="stat-label">Size</span>
+                <span class="stat-value" id="resultSize">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Dimensions</span>
+                <span class="stat-value" id="resultDimensions">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-placeholder ad-placeholder-leaderboard">
+        Advertisement Space - 728x90
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          <h4>Works Best With</h4>
+          <p>Images with solid, uniform background colors like white, green screens, or flat-color backdrops.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>Privacy First</h4>
+          <p>Your images never leave your browser. All processing uses the Canvas API locally.</p>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <h4>Transparent PNG</h4>
+          <p>Download your result as a transparent PNG, perfect for layering in design tools.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Image Tools. All rights reserved.</p>
+        <p>All processing happens in your browser.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script>
+    let originalFile = null;
+    let originalImage = null;
+    let originalCanvas = null;
+    let resultDataURL = null;
+    let pickedColor = { r: 255, g: 255, b: 255 };
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const controlsSection = document.getElementById('controlsSection');
+    const previewSection = document.getElementById('previewSection');
+    const bgColorInput = document.getElementById('bgColor');
+    const toleranceSlider = document.getElementById('toleranceSlider');
+    const toleranceValue = document.getElementById('toleranceValue');
+    const removeBtn = document.getElementById('removeBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    new DragDropZone(uploadArea, { onFileDrop: handleFile });
+    fileInput.addEventListener('change', (e) => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+    async function handleFile(file) {
+      if (!file.type.startsWith('image/')) { Toast.error('Please select an image file.'); return; }
+      originalFile = file;
+      try {
+        const dataURL = await FileUtil.readAsDataURL(file);
+        originalImage = await FileUtil.loadImage(dataURL);
+
+        document.getElementById('originalPreview').src = dataURL;
+        document.getElementById('originalSize').textContent = FileUtil.formatBytes(file.size);
+        document.getElementById('originalDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+
+        // Auto-detect background color
+        if (document.getElementById('autoDetect').checked) {
+          detectBackgroundColor(originalImage);
+        }
+
+        controlsSection.classList.remove('hidden');
+        previewSection.classList.remove('hidden');
+        downloadBtn.disabled = true;
+        resultDataURL = null;
+        Toast.success('Image loaded! Adjust settings and click Remove Background.');
+      } catch (err) { Toast.error('Failed to load image.'); }
+    }
+
+    function detectBackgroundColor(img) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      // Sample corners
+      const samples = [
+        ctx.getImageData(0, 0, 1, 1).data,
+        ctx.getImageData(img.width - 1, 0, 1, 1).data,
+        ctx.getImageData(0, img.height - 1, 1, 1).data,
+        ctx.getImageData(img.width - 1, img.height - 1, 1, 1).data
+      ];
+
+      // Use most common corner color
+      const r = Math.round(samples.reduce((s, d) => s + d[0], 0) / 4);
+      const g = Math.round(samples.reduce((s, d) => s + d[1], 0) / 4);
+      const b = Math.round(samples.reduce((s, d) => s + d[2], 0) / 4);
+
+      pickedColor = { r, g, b };
+      bgColorInput.value = '#' + [r, g, b].map(c => c.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Color picker from image
+    document.getElementById('originalPreview').addEventListener('click', (e) => {
+      const img = e.target;
+      const rect = img.getBoundingClientRect();
+      const x = Math.round((e.clientX - rect.left) / rect.width * originalImage.width);
+      const y = Math.round((e.clientY - rect.top) / rect.height * originalImage.height);
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = originalImage.width;
+      canvas.height = originalImage.height;
+      ctx.drawImage(originalImage, 0, 0);
+
+      const pixel = ctx.getImageData(x, y, 1, 1).data;
+      pickedColor = { r: pixel[0], g: pixel[1], b: pixel[2] };
+      bgColorInput.value = '#' + [pixel[0], pixel[1], pixel[2]].map(c => c.toString(16).padStart(2, '0')).join('');
+      Toast.info(`Picked color: RGB(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`);
+    });
+
+    bgColorInput.addEventListener('input', () => {
+      const hex = bgColorInput.value;
+      pickedColor = {
+        r: parseInt(hex.substr(1, 2), 16),
+        g: parseInt(hex.substr(3, 2), 16),
+        b: parseInt(hex.substr(5, 2), 16)
+      };
+    });
+
+    toleranceSlider.addEventListener('input', () => { toleranceValue.textContent = toleranceSlider.value; });
+
+    removeBtn.addEventListener('click', async () => {
+      if (!originalImage) return;
+      removeBtn.disabled = true;
+      removeBtn.innerHTML = '<span class="spinner"></span> Processing...';
+      await new Promise(r => setTimeout(r, 50));
+
+      try {
+        const tolerance = parseInt(toleranceSlider.value);
+        const edgeMode = document.getElementById('edgeMode').value;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = originalImage.width;
+        canvas.height = originalImage.height;
+        ctx.drawImage(originalImage, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        // First pass: mark pixels for removal
+        const removeMask = new Uint8Array(canvas.width * canvas.height);
+        for (let i = 0; i < data.length; i += 4) {
+          const px = i / 4;
+          const r = data[i], g = data[i + 1], b = data[i + 2];
+          const distance = Math.sqrt(
+            (r - pickedColor.r) ** 2 +
+            (g - pickedColor.g) ** 2 +
+            (b - pickedColor.b) ** 2
+          );
+          if (distance < tolerance) {
+            removeMask[px] = 1;
+          }
+        }
+
+        // Edge smoothing
+        if (edgeMode !== 'none') {
+          const passes = edgeMode === 'enhanced' ? 2 : 1;
+          for (let pass = 0; pass < passes; pass++) {
+            const newMask = new Uint8Array(removeMask);
+            for (let y = 1; y < canvas.height - 1; y++) {
+              for (let x = 1; x < canvas.width - 1; x++) {
+                const px = y * canvas.width + x;
+                if (!removeMask[px]) {
+                  const neighbors = [
+                    removeMask[(y-1) * canvas.width + x],
+                    removeMask[(y+1) * canvas.width + x],
+                    removeMask[y * canvas.width + (x-1)],
+                    removeMask[y * canvas.width + (x+1)]
+                  ];
+                  const removeCount = neighbors.filter(n => n).length;
+                  if (removeCount >= 3) {
+                    newMask[px] = 1;
+                  }
+                }
+              }
+            }
+            removeMask.set(newMask);
+          }
+        }
+
+        // Apply transparency
+        for (let i = 0; i < data.length; i += 4) {
+          if (removeMask[i / 4]) {
+            data[i + 3] = 0;
+          }
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        resultDataURL = canvas.toDataURL('image/png');
+
+        document.getElementById('resultPreview').src = resultDataURL;
+        document.getElementById('resultSize').textContent = FileUtil.formatBytes(ImageProcessor.getDataURLSize(resultDataURL));
+        document.getElementById('resultDimensions').textContent = `${originalImage.width} x ${originalImage.height}`;
+
+        downloadBtn.disabled = false;
+        Toast.success('Background removed successfully!');
+      } catch (err) {
+        Toast.error('Processing failed.');
+        console.error(err);
+      } finally {
+        removeBtn.disabled = false;
+        removeBtn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M14 14l7 7"/><path d="M21 14l-7 7"/></svg>
+          Remove Background
+        `;
+      }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!resultDataURL) return;
+      const name = originalFile.name.replace(/\.[^.]+$/, '') + '_no_bg.png';
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = resultDataURL;
+      link.click();
+      Toast.success('Download started!');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      originalFile = null; originalImage = null; resultDataURL = null;
+      controlsSection.classList.add('hidden'); previewSection.classList.add('hidden');
+      fileInput.value = ''; downloadBtn.disabled = true;
+    });
+  </script>
+  <script src="../js/monetize.js"></script>
+</body>
+</html>
